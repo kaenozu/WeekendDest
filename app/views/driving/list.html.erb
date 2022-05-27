@@ -1,0 +1,24 @@
+<%= link_to("戻る", driving_index_path) %>
+<h2>往復で100kmくらいの観光地</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">出発地</th>
+      <th scope="col">到着地</th>
+      <th scope="col">高速での距離(km)</th>
+      <th scope="col">下道での距離(km)</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@result.each do |s|%>
+      <tr>
+        <td><%= s["location"]["src"] %></th>
+        <td><%= @srcdestMap[:place_name] %></td>
+        <td><%= s["distance"]["highway"] %></td>
+        <td><%= s["distance"]["localway"] %></td>
+        <td><%= link_to("行く", "https://www.google.co.jp/maps/dir/" + s["location"]["src"] +"/" + s["location"]["dest"] + "/data=!4m3!4m2!3e0!4e0", target: :_blank, rel: "noopener noreferrer") %></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>

@@ -1,0 +1,19 @@
+<%= form_with(url: list_driving_index_path, local: true, id: "new-event", method: 'get') do |f| %>
+  <div class="input-group col-md-auto mb-3">
+    <span class="input-group-text" id="basic-addon1">出発地</span>
+    <%= f.text_field :src, value: @src, class:"form-control col-xl", placeholder: "名称、座標どちらでも可" %>
+    <button class="btn btn-primary" type="button" id="geoBtn">現在地取得</button>
+  </div>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <%= f.submit "出発", class: "btn btn-primary", name: nil %>
+  </div>
+<% end %>
+<script>
+  $('#geoBtn').on('click', function() {
+    navigator.geolocation.getCurrentPosition(function(pos){
+      $("#src").val(pos.coords.latitude + "," + pos.coords.longitude)
+    },function(){
+
+    });
+  });
+</script>

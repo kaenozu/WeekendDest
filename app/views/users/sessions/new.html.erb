@@ -1,0 +1,21 @@
+<blockquote>
+  <h2>新刊リマインダー</h2>
+</blockquote>
+<%# <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_with(url: confirm_routes_path, local: true, id: "new-event") do |f| %>
+    <div class="field">
+      メールアドレス<br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <div class="field ">
+      パスワード<br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+    <div class="actions center-align">
+      <%= f.submit "ログイン実行", :class=>"btn waves-effect waves-light" %>
+    </div>
+  <% end %>
+  <br />
+  <div class="center-align">
+    <%= render "users/shared/links" %>
+  </div>

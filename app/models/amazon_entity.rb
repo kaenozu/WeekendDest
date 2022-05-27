@@ -1,0 +1,2 @@
+class AmazonEntity < ApplicationRecord
+end
