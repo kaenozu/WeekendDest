@@ -1,0 +1,2 @@
+class RouteCash < ApplicationRecord
+end
