@@ -10,11 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_26_075859) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_28_062038) do
   create_table "amazon_entities", force: :cascade do |t|
     t.string "amazon_id"
     t.integer "amount"
     t.datetime "entry_date", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "route_cashes", force: :cascade do |t|
+    t.string "src"
+    t.string "dest"
+    t.float "highway"
+    t.float "localway"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "src_geo_cashes", force: :cascade do |t|
+    t.string "place_name"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
